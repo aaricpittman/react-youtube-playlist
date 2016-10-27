@@ -9,7 +9,6 @@ class VideoTile extends React.Component {
 
   _handleOnClick (event) {
     if (this.props.onClick !== undefined) {
-      console.log('im here')
       this.props.onClick(this.props.id)
     }
   }
