@@ -21,7 +21,7 @@ class Playlist extends React.Component {
         {this.props.videos
           .map((video, index) => (
             <VideoTile key={video.id} onClick={this._handleVideoTileClick} {...video} />
-        ))}
+          ))}
       </div>
     )
   }

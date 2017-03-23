@@ -36,6 +36,7 @@ class YoutubePlaylist extends React.Component {
             thumbnailUrl: videoData.snippet.thumbnails.default.url
           }
         })
+
         this.setState({
           video: videos[0],
           videos: videos
@@ -46,14 +47,16 @@ class YoutubePlaylist extends React.Component {
   render () {
     return (
       <div className='yp-container'>
-        <Player video={this.state.video} />
+        <div className='yp-player-container'>
+          <Player video={this.state.video} />
+        </div>
         <Playlist videos={this.state.videos} onVideoTileClick={this._handleOnVideoTileClick} />
       </div>
     )
   }
 }
 
-Playlist.propTypes = {
+YoutubePlaylist.propTypes = {
   youtubeApiKey: React.PropTypes.string.isRequired,
   playlistId: React.PropTypes.string.isRequired
 }

@@ -3,9 +3,11 @@ import YoutubeIframeApi from '../lib/YoutubeIframeApi'
 
 class Player extends React.Component {
   _initializePlayer () {
+    const {options} = this.props
+
     this.player = new YoutubeIframeApi.Player('player', {
-      height: '270',
-      width: '480',
+      height: options.height.toString(),
+      width: options.width.toString(),
       playerVars: {
         modestbranding: 0,
         showinfo: 0,
@@ -42,7 +44,20 @@ class Player extends React.Component {
 }
 
 Player.propTypes = {
-  video: React.PropTypes.object
+  video: React.PropTypes.object.isRequired,
+  options: React.PropTypes.shape({
+    height: React.PropTypes.number,
+    width: React.PropTypes.number,
+    showControls: React.PropTypes.bool
+  })
+}
+
+Player.defaultProps = {
+  options: {
+    height: 270,
+    width: 480,
+    showControls: true
+  }
 }
 
 export default Player
